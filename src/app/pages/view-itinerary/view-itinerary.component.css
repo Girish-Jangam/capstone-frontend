@@ -1,0 +1,38 @@
+/* Custom styles */
+.container {
+    max-width: 900px;
+  }
+  
+  .card {
+    border-radius: 10px;
+  }
+  
+  .card-header {
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .form-group input {
+    border-radius: 5px;
+  }
+  
+  button {
+    border-radius: 5px;
+  }
+  
+  .btn-block {
+    width: 100%;
+  }
+  
+  .list-group-item {
+    font-size: 1.1rem;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .list-group-item strong {
+    color: #333;
+  }
+  

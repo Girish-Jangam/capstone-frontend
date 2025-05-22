@@ -1,0 +1,56 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-12 col-lg-12 mb-4" *ngFor="let destination of destinations">
+      <div class="d-flex justify-content-between">
+        
+        <!-- Destination Card -->
+        <div class="destination-card card shadow-sm">
+          <div class="image-container position-relative">
+            <img class="card-img-top" [src]="'assets/images/' + destination.image" alt="{{destination.name}}" />
+            
+            <!-- Favorite Button -->
+            <button class="favorite-btn position-absolute top-0 end-0 m-2" 
+            (click)="toggleFavorite(destination)" [disabled]="isFavorite(destination)">
+              <i class="fa fa-heart" [ngClass]="{'red-heart':destination.favorite,'white-heart':!destination.favorite}"></i>
+            </button>
+          </div>
+
+          <div class="card-body p-3">
+            <h5 class="card-title text-center">{{ destination.name }}</h5>
+            <h6 class="text-muted text-center mb-3">ID: {{ destination.id }}</h6> 
+            <p class="card-text">{{ destination.description }}</p>
+
+            <!-- Buttons -->
+            <div class="d-flex justify-content-center">
+              <button type="button" class="btn btn-outline-dark btn-sm mb-2" 
+              style="background-color: #008080; border-radius: 15px; color: white;" (click)="onbali(destination.id)">Guide details</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Itinerary Card (Beside Destination Card) -->
+        <div class="itinerary-card card shadow-sm">
+          <div class="card-body p-3">
+            <h5 class="card-title text-center">Itinerary for {{ destination.name }}</h5>
+
+            <!-- Itinerary Details -->
+            <div class="itinerary-details mt-3">
+              <h6><strong>ID:</strong> {{ destination.id }}</h6>
+              <h6><strong>Destination:</strong> {{ destination.name }}</h6>
+              <h6><strong>Attractions:</strong> {{ destination.attractions }}</h6>
+              <h6><strong>Duration:</strong> {{ destination.duration }}</h6>
+              <h6><strong>Dining:</strong> {{ destination.dining }}</h6>
+              <h6><strong>Lodging:</strong> {{ destination.lodging }}</h6>
+            </div>
+
+            <!-- Save Itinerary Button -->
+            <div class="d-flex justify-content-center mt-3">
+              <button type="button" class="btn btn-outline-dark btn-sm mb-2" 
+              style="background-color: #008080; border-radius: 15px; color: white;"
+        (click)="onSaveItinerary(destination)">Save Itinerary</button>
+          </div>
+        </div>
+      </div> <!-- End of d-flex -->
+    </div> <!-- End of col-md-12 -->
+  </div> <!-- End of row -->
+</div> <!-- End of container -->

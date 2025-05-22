@@ -1,0 +1,53 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class TripService {
+
+  // searchDestinations(searchQuery: any) {
+  //   throw new Error('Method not implemented.');
+  // }
+  // private reviewSubject= new BehaviorSubject<any[]>([]);
+  // reviews$=this.reviewSubject.asObservable();
+  // baseUrl = 'http://localhost:3000/api/v1/destinationGuides';
+  // baseUrl2 = 'http://localhost:3000/api/v1/destinationDetails';
+  // reviewsUrl = 'http://localhost:3000/api/v1/reviews'; // Adjust the URL as needed
+
+  
+  // searchDestination(): Observable<any[]> {
+    //   return this.http.get<any[]>(this.baseUrl);
+    // }
+    
+    // getDestination(id: string): Observable<any> {
+      //   return this.http.get(`${this.baseUrl2}/${id}`);
+      // }
+
+      // submitReview(destinationId: string, review: any): Observable<any> {
+        //   return this.http.put(`${this.reviewsUrl}/${destinationId}`, review).pipe(
+          //     tap((response: any) => {
+            //       // After submitting the review, emit the updated reviews list (assuming response.reviews contains the updated list)
+            //       this.reviewSubject.next(response.reviews);
+            //     })
+            //   );
+            // }
+            
+            // getReviews(): Observable<any[]> {
+              //   return this.http.get<any[]>(this.baseUrl2);
+              // constructor(private http: HttpClient) {}
+  // }
+
+  baseUrl = 'https://capstone-dbserver.onrender.com/places';
+  baseUrl2 = 'https://capstone-dbserver.onrender.com/destinations'
+  constructor(private http: HttpClient) { }
+
+  getTrip(): Observable<any[]>{
+    return this.http.get<any[]>(this.baseUrl);
+  }
+
+  getDestination(): Observable<any[]>{
+    return this.http.get<any[]>(this.baseUrl2);
+  }
+}

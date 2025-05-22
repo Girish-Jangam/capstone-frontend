@@ -1,0 +1,57 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div style="background-color: #4b0082;" class="card-header text-white text-center">
+          <h3 >View Trip Itinerary</h3>
+        </div>
+        <div class="card-body">
+
+          <!-- Itinerary Form -->
+          <form [formGroup]="itineraryForm" (ngSubmit)="getItinerary()">
+            <div class="form-group mb-3">
+              <label for="tripId" class="form-label">Enter Trip ID (e.g., TR1000):</label>
+              <input id="tripId" formControlName="tripId" class="form-control" placeholder="Enter Trip ID" />
+              <div *ngIf="itineraryForm.get('tripId')?.invalid && itineraryForm.get('tripId')?.touched" class="text-danger">
+                Trip ID is required.
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-block" [disabled]="itineraryForm.invalid" style="background-color: #008080;">Get Itinerary</button>
+          </form>
+
+          <!-- Display Trip Details -->
+          <div *ngIf="itinerary" class="mt-4">
+            <h4 class="text-center mb-3">Trip Details</h4>
+            <div class="list-group">
+              <div class="list-group-item">
+                <strong>Destination:</strong> {{ itinerary.destination }}
+              </div>
+              <div class="list-group-item">
+                <strong>Duration:</strong> {{ itinerary.duration }}
+              </div>
+              <div class="list-group-item">
+                <strong>Activities:</strong> {{ itinerary.activities.join(', ') }}
+              </div>
+              <div class="list-group-item">
+                <strong>Lodging:</strong> {{ itinerary.lodging }}
+              </div>
+              <div class="list-group-item">
+                <strong>Dining:</strong> {{ itinerary.dining }}
+              </div>
+            </div>
+
+            <!-- Save Button -->
+            <button class="btn btn-success mt-3" (click)="saveToFavorites()">Save to Favorites</button>
+          </div>
+
+          <!-- Message if user needs to log in -->
+          <div *ngIf="message" class="alert alert-warning mt-3 text-center">
+            {{ message }}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

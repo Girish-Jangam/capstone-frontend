@@ -1,0 +1,91 @@
+/* Red Heart and White Heart classes */
+  .red-heart {
+    color: red;
+  }
+  
+  
+  .favorite-btn:hover{
+    color: red;
+  }
+.favorited{
+    color: red;
+}
+  
+ 
+.d-flex {
+  display: flex;
+  justify-content: space-between; /* Space between the destination and itinerary cards */
+  gap: 20px; /* Space between the cards */
+}
+
+/* Set both cards to have equal height and width */
+.destination-card, .itinerary-card {
+  width: 48%; /* 48% width to give space between them */
+  display: flex;
+  flex-direction: column;
+  height: 400px; /* Fixed height for both cards */
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.destination-card:hover, .itinerary-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1; /* Ensures the content takes up remaining space and both cards are the same height */
+  padding: 1.5rem;
+}
+
+/* Image Container for Destination Card */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 200px; /* Decreased image height */
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+  transform: scale(1.1); /* Zoom effect on image */
+}
+
+/* Itinerary Details */
+.itinerary-details h6 {
+  margin-bottom: 10px;
+}
+
+/* Buttons Styling */
+.btn-outline-dark {
+  border-radius: 25px;
+  font-size: 0.875rem;
+  padding: 8px 20px;
+}
+
+.btn-outline-dark:hover {
+  background-color: rgb(94, 66, 66);
+  color: white;
+}
+
+/* Responsive Styling for smaller screens */
+@media (max-width: 767px) {
+  .destination-card, .itinerary-card {
+    width: 100%; /* Stack the cards vertically on small screens */
+  }
+}
+
+.itinerary-card{
+  background-image: url('../../../assets/images/TravelWorld.jpg');
+  opacity: unset;
+}

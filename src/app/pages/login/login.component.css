@@ -1,0 +1,115 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 500px;
+    margin-top: 50px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title Styling */
+  h2 {
+    color: #007bff;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  
+  /* Form Control Styles */
+  .form-label {
+    font-size: 1rem;
+    color: #495057;
+    margin-bottom: 5px;
+  }
+  
+  .form-control {
+    font-size: 1rem;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  }
+  
+  /* Invalid Form Control (Red Border on Invalid Input) */
+  .is-invalid {
+    border-color: #e74c3c;
+  }
+  
+  .invalid-feedback {
+    font-size: 0.875rem;
+    color: #e74c3c;
+    margin-top: 5px;
+    padding-left: 15px;
+  }
+  
+  /* Submit Button */
+  button[type="submit"] {
+    font-size: 1.1rem;
+    padding: 12px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  button[type="submit"]:disabled {
+    background-color: #6c757d;
+  }
+  
+  /* Alert Message for Errors */
+  .alert {
+    font-size: 1rem;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+  }
+  
+  /* SignUp Button */
+  button.btn-link {
+    font-size: 1rem;
+    text-decoration: none;
+    color: #007bff;
+    background-color: transparent;
+    border: none;
+    margin-top: 10px;
+  }
+  
+  button.btn-link:hover {
+    text-decoration: underline;
+    color: #0056b3;
+  }
+  
+  /* Responsive Design (for smaller screens) */
+  @media (max-width: 576px) {
+    .container {
+      padding: 20px;
+      margin-top: 20px;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    button[type="submit"], button.btn-link {
+      font-size: 1rem;
+    }
+  }
+  

@@ -1,0 +1,60 @@
+.favorites-container{
+   
+    text-align: center;
+    padding: 20px;
+}
+.card-title{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+}
+.tabs{
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid #ddd;
+}
+.tabs button {
+    background:none;
+    border: none;
+    padding: 10px,20px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.tabs button.active{
+    color:blue;
+    border-bottom: 3px solid blue;
+}
+
+.tab-content{
+    margin-top: 20px;
+}
+
+.empty-state{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+
+
+}
+
+.empty-state p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #777;
+}
+.view-more{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 1000;
+}
+.alert{
+    background: linear-gradient(135deg, #4b0082, #008080);
+    color: white;
+    padding: 2;
+}

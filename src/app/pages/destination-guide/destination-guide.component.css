@@ -1,0 +1,100 @@
+v/* General Body and Container Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    padding-top: 50px;
+  }
+  
+  /* Title Styling */
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #007bff;
+  }
+  
+  /* Cards Styling */
+  .card {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 123, 255, 0.2);
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  /* Description Styling */
+  .card-text {
+    font-size: 1rem;
+    color: #6c757d;
+  }
+  
+  /* Reviews Section */
+  h4 {
+    font-size: 1.1rem;
+    color: #343a40;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  
+  /* Review Item Styling */
+  .review-item {
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .review-item:hover {
+    background-color: #e9ecef;
+  }
+  
+  /* Review Username and Rating */
+  .review-item strong {
+    font-size: 1.1rem;
+  }
+  
+  .badge {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+  }
+  
+  /* Empty Message Styling */
+  .alert {
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: #d1ecf1;
+    border-color: #b6e0f7;
+    color: #0c5460;
+  }
+  
+  /* Responsive Design for Smaller Screens */
+  @media (max-width: 768px) {
+    .container {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  
+    h2 {
+      font-size: 1.8rem;
+    }
+  
+    .card-body {
+      padding: 15px;
+    }
+  
+    .card {
+      border-radius: 8px;
+    }
+  }
+  

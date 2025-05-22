@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar shadow-sm" [class.scrolled]="isScrolled">
+  <div class="container">
+    <!-- Brand Name -->
+    <a class="navbar-brand logo-container" routerLink="/">
+      <span class="logo">Travel Trove</span>
+
+    </a>
+
+
+    <!-- Mobile Menu Button (☰) -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <!-- Home Link -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Home</a>
+        </li>
+
+        <!-- Destinations Link -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/destination">Destinations</a>
+        </li>
+
+        <!-- Create Itinerary (Visible Before & After Login) -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="createItinerary">Create Itinerary</a>
+        </li>
+
+        
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" (click)="toggleGroupSelectVisibility()">Groups</a>
+          <!-- Group Actions Select Dropdown -->
+          <select *ngIf="isGroupSelectVisible" class="form-select" aria-label="Groups action select" (change)="onGroupActionSelect($event)">
+            <option value="" disabled selected>Select an Action</option>
+            <option value="create">Create Group</option>
+            <option value="view">View Groups</option>
+            <!-- <option value="join">My Groups</option> -->
+          </select>
+        </li>
+        
+        <!-- Login Link (Visible Only If User is NOT Logged In) -->
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a class="nav-link" routerLink="/login" (click)="login()">Login</a>
+        </li>
+        
+        <!-- Additional Links (Visible Only If User is Logged In) -->
+        <!-- <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="/guide">Trip Guide</a>
+        </li> -->
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="/fav">Favorites</a>
+        </li>
+        <!-- Reviews -->
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="reviews">Reviews</a>
+        </li>
+        <!-- Admin -->
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="/admin">Admin</a>
+        </li>
+        
+        <!-- Logout Link (Visible Only If User is Logged In) -->
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link text-warning" (click)="logout()"><b>Logout</b></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,29 @@
+/* Custom Focus Effect */
+input:focus, textarea:focus {
+  border-color: #007bff; /* Blue border on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue shadow */
+}
+
+/* Button Hover Effect */
+.btn:hover {
+  opacity: 0.9;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Card Hover Effect */
+.card:hover {
+  box-shadow: 0 8px 16px #4b0082;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Adjust the container width for large screens */
+.container {
+  max-width: 800px;
+}
+.form-label{
+  font-weight: bold;
+}
+
+.card{
+  background-image: url('../../../assets/images/TravelWorld.jpg');
+}

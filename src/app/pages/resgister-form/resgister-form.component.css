@@ -1,0 +1,77 @@
+/* Container and form styling */
+.container {
+    max-width: 600px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  /* Form section */
+  form {
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Label Styling */
+  .form-label {
+    font-weight: 600;
+    color: #495057;
+  }
+  
+  /* Form field input styling */
+  .form-control {
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  /* On focus effect for inputs */
+  .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Button Styling */
+  button {
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+  }
+  
+  /* Success/Message section */
+  .alert {
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: 500;
+  }
+  
+  .alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+  }
+  
+  /* Error messages */
+  .text-danger {
+    font-size: 0.875rem;
+    margin-top: 5px;
+  }
+  
+  /* Responsive styling for mobile devices */
+  @media (max-width: 768px) {
+    .container {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .form-control {
+      padding: 12px 15px;
+      font-size: 1.2rem;
+    }
+  
+    button {
+      font-size: 1.2rem;
+      padding: 12px 20px;
+    }
+  }
+  

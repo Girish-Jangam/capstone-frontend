@@ -1,0 +1,205 @@
+<div class="container-fluid p-4">
+  <h2 class="my-4 text-center text-primary">Admin Dashboard</h2>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="alert alert-danger text-center">
+    {{ errorMessage }}
+  </div>
+
+  <div class="row">
+
+    <!-- Trip Itineraries Section -->
+    <div class="col-md-12 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title text-center">Trip Itineraries</h3>
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Destination</th>
+                <th>Duration</th>
+                <th>Activities</th>
+                <th>Lodging</th>
+                <th>Dining</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let itinerary of itineraries">
+                <td>{{ itinerary.id }}</td>
+                <td>{{ itinerary.destination }}</td>
+                <td>{{ itinerary.duration }}</td>
+                <td>{{ itinerary.activities.join(', ') }}</td>
+                <td>{{ itinerary.lodging }}</td>
+                <td>{{ itinerary.dining }}</td>
+                <td>
+                  <!-- Edit Button -->
+                  <button class="btn btn-primary btn-sm" (click)="editItineraryDetails(itinerary)">
+                    Edit
+                  </button>
+                  <!-- Delete Button -->
+                  <button class="btn btn-danger btn-sm" (click)="deleteItinerary(itinerary.id)">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Edit Itinerary Form (only visible when editing) -->
+          <div *ngIf="editItinerary.id">
+            <h4>Edit Itinerary</h4>
+            <form (ngSubmit)="saveUpdatedItinerary()">
+              <div class="form-group">
+                <label for="itinerary-id">ID</label>
+                <input type="text" id="itinerary-id" class="form-control" [(ngModel)]="editItinerary.id" name="id" readonly />
+              </div>
+              <div class="form-group">
+                <label for="destination">Destination</label>
+                <input type="text" id="destination" class="form-control" [(ngModel)]="editItinerary.destination" name="destination" required />
+              </div>
+              <div class="form-group">
+                <label for="duration">Duration</label>
+                <input type="text" id="duration" class="form-control" [(ngModel)]="editItinerary.duration" name="duration" required />
+              </div>
+              <div class="form-group">
+                <label for="activities">Activities</label>
+                <input type="text" id="activities" class="form-control" [(ngModel)]="editItinerary.activities" name="activities" required />
+              </div>
+              <div class="form-group">
+                <label for="lodging">Lodging</label>
+                <input type="text" id="lodging" class="form-control" [(ngModel)]="editItinerary.lodging" name="lodging" required />
+              </div>
+              <div class="form-group">
+                <label for="dining">Dining</label>
+                <input type="text" id="dining" class="form-control" [(ngModel)]="editItinerary.dining" name="dining" required />
+              </div>
+              <button type="submit" class="btn btn-primary w-100 mt-3">Save Changes</button>
+            </form>
+          </div>
+
+          <!-- Create New Itinerary Form -->
+          <h4 class="mt-4">Create New Trip Itinerary</h4>
+          <form (ngSubmit)="createItinerary()">
+            <div class="form-group">
+              <label for="new-itinerary-id">ID</label>
+              <input type="text" id="new-itinerary-id" class="form-control" [(ngModel)]="newItinerary.id" name="id" required />
+            </div>
+            <div class="form-group">
+              <label for="destination">Destination</label>
+              <input type="text" id="destination" class="form-control" [(ngModel)]="newItinerary.destination" name="destination" required />
+            </div>
+            <div class="form-group">
+              <label for="duration">Duration</label>
+              <input type="text" id="duration" class="form-control" [(ngModel)]="newItinerary.duration" name="duration" required />
+            </div>
+            <div class="form-group">
+              <label for="activities">Activities</label>
+              <input type="text" id="activities" class="form-control" [(ngModel)]="newItinerary.activities" name="activities" required />
+            </div>
+            <div class="form-group">
+              <label for="lodging">Lodging</label>
+              <input type="text" id="lodging" class="form-control" [(ngModel)]="newItinerary.lodging" name="lodging" required />
+            </div>
+            <div class="form-group">
+              <label for="dining">Dining</label>
+              <input type="text" id="dining" class="form-control" [(ngModel)]="newItinerary.dining" name="dining" required />
+            </div>
+            <button type="submit" class="btn btn-primary w-100 mt-3">Create Trip Itinerary</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Destinations Section -->
+    <div class="col-md-12 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title text-center">Destinations</h3>
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Summary</th>
+                <th>Images</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let destination of destinations">
+                <td>{{ destination.id }}</td>
+                <td><strong>{{ destination.title }}</strong></td>
+                <td>{{ destination.summary }}</td>
+                <td><img [src]="'../../../assets/images/' + destination.images" alt="{{ destination.title }}" width="100"></td>
+                <td>
+                  <!-- Edit Button -->
+                  <button class="btn btn-primary btn-sm" (click)="editDestinationDetails(destination)">
+                    Edit
+                  </button>
+                  <!-- Delete Button -->
+                  <button class="btn btn-danger btn-sm" (click)="deleteDestination(destination.id)">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Edit Destination Form (only visible when editing) -->
+          <div *ngIf="editDestination.id">
+            <h4>Edit Destination</h4>
+            <form (ngSubmit)="saveUpdatedDestination()">
+              <div class="form-group">
+                <label for="destination-id">ID</label>
+                <input type="text" id="destination-id" class="form-control" [(ngModel)]="editDestination.id" name="id" readonly />
+              </div>
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" class="form-control" [(ngModel)]="editDestination.title" name="title" required />
+              </div>
+              <div class="form-group">
+                <label for="summary">Summary</label>
+                <input type="text" id="summary" class="form-control" [(ngModel)]="editDestination.summary" name="summary" required />
+              </div>
+              <div class="form-group">
+                <label for="images">Image URL</label>
+                <input type="text" id="images" class="form-control" [(ngModel)]="editDestination.images" name="images" required />
+              </div>
+              <button type="submit" class="btn btn-primary w-100 mt-3">Save Changes</button>
+            </form>
+          </div>
+
+          <!-- Create New Destination Form -->
+          <h4 class="mt-4">Create New Destination</h4>
+          <form (ngSubmit)="createDestination()">
+            <div class="form-group">
+              <label for="new-destination-id">ID</label>
+              <input type="text" id="new-destination-id" class="form-control" [(ngModel)]="newDestination.id" name="id" required />
+            </div>
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" id="title" class="form-control" [(ngModel)]="newDestination.title" name="title" required />
+            </div>
+            <div class="form-group">
+              <label for="summary">Summary</label>
+              <input type="text" id="summary" class="form-control" [(ngModel)]="newDestination.summary" name="summary" required />
+            </div>
+            <div class="form-group">
+              <label for="images">Images URL</label>
+              <input type="text" id="images" class="form-control" [(ngModel)]="newDestination.images" name="images" required />
+            </div>
+            <button type="submit" class="btn btn-primary w-100 mt-3">Create Destination</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Logout Button -->
+  <div class="text-center mt-4">
+    <button class="btn btn-warning" (click)="onLogout()">Logout</button>
+  </div>
+</div>

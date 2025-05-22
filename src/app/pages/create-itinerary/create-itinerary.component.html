@@ -1,0 +1,66 @@
+<div class="container mt-5"> 
+  <h2 class="card-title mb-4 text-center p-1" style="background-color: #4b0082; border-radius: 15px; color: white;">Create Trip Itinerary</h2>
+
+  <!-- Main Itinerary Creation Box -->
+  <div class="card shadow-lg rounded-3 p-4">
+    <form [formGroup]="itineraryForm" (ngSubmit)="onSubmit()">
+      <!-- Destination Field -->
+      <div class="form-group mb-3">
+        <label for="destination" class="form-label">Destination:</label>
+        <input id="destination" formControlName="destination" class="form-control shadow-none" placeholder="Enter destination" />
+        <div *ngIf="itineraryForm.get('destination')?.invalid && itineraryForm.get('destination')?.touched" class="invalid-feedback d-block">
+          Destination is required
+        </div>
+      </div>
+ 
+      <!-- Duration Field -->
+      <div class="form-group mb-3">
+        <label for="duration" class="form-label">Duration (in days):</label>
+        <input id="duration" formControlName="duration" class="form-control shadow-none" type="number" placeholder="Enter duration in days" />
+        <div *ngIf="itineraryForm.get('duration')?.invalid && itineraryForm.get('duration')?.touched" class="invalid-feedback d-block">
+          Duration is required
+        </div>
+      </div>
+
+      <!-- Activities Field -->
+      <div class="form-group mb-3">
+        <label for="activities" class="form-label">Activities:</label>
+        <textarea id="activities" formControlName="activities" class="form-control shadow-none" placeholder="List your activities" rows="3"></textarea>
+        <div *ngIf="itineraryForm.get('activities')?.invalid && itineraryForm.get('activities')?.touched" class="invalid-feedback d-block">
+          Activities are required
+        </div>
+      </div>
+
+      <!-- Lodging Field -->
+      <div class="form-group mb-3">
+        <label for="lodging" class="form-label">Lodging:</label>
+        <input id="lodging" formControlName="lodging" class="form-control shadow-none" placeholder="Enter lodging information" />
+        <div *ngIf="itineraryForm.get('lodging')?.invalid && itineraryForm.get('lodging')?.touched" class="invalid-feedback d-block">
+          Lodging is required
+        </div>
+      </div>
+
+      <!-- Dining Field -->
+      <div class="form-group mb-4">
+        <label for="dining" class="form-label">Dining:</label>
+        <input id="dining" formControlName="dining" class="form-control shadow-none" placeholder="Enter dining options" />
+        <div *ngIf="itineraryForm.get('dining')?.invalid && itineraryForm.get('dining')?.touched" class="invalid-feedback d-block">
+          Dining is required
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary w-100 py-2 p-2" [disabled]="itineraryForm.invalid" 
+      style="background-color: #008080; border-radius: 15px; color: white;">
+       <h5><b>Create Itinerary</b></h5>
+      </button>
+    </form>
+  </div>
+
+  <!-- View Itinerary Button Box -->
+  <div class="card shadow-lg rounded-3 p-4 mt-4">
+    <button class="btn btn-outline-secondary w-100 py-2" (click)="viewItinerary()" style="background-color: #008080; border-radius:0px; color: white;">
+      <h5 class="text-center mb-0 p-1" >View Created Itinerary</h5>
+    </button>
+  </div>
+</div>

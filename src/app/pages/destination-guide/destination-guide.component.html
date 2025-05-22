@@ -1,0 +1,32 @@
+<div class="container mt-5">
+    <h2 class="text-center text-primary mb-4">Destinations Guides</h2>
+  
+    <!-- No Destinations Available -->
+    <div *ngIf="destinations.length === 0" class="alert alert-info text-center">
+      No destination available
+    </div>
+  
+    <!-- Loop through destinations -->
+    <div *ngFor="let destination of destinations" class="card mb-4 shadow-sm">
+      <div class="card-body">
+        <!-- Title -->
+        <h3 class="card-title text-primary">{{destination.title}}</h3>
+        
+        <!-- Description -->
+        <p class="card-text text-muted">{{destination.description}}</p>
+  
+        <!-- Reviews Section -->
+        <h4 class="text-dark">Reviews:</h4>
+        <ul class="list-unstyled">
+          <li *ngFor="let review of destination.reviews" class="mb-2">
+            <div class="review-item p-3 rounded shadow-sm">
+              <strong class="text-info">{{review.user}}</strong>
+              <span class="text-muted">- {{review.comment}}</span>
+              <span class="badge bg-warning text-dark ms-2">Rating: {{review.rating}}/5</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  

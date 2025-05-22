@@ -1,0 +1,41 @@
+<!-- src/app/destination/destination.component.html -->
+<div class="container mt-5">
+  <h2 class="my-4 text-center p-1" style="background: linear-gradient(135deg, #4b0082, #008080); color:white;border-radius: 20px;">Search Destinations</h2>
+
+  <!-- Search Bar -->
+  <div class="mb-3">
+    <input
+      [(ngModel)]="searchQuery"
+      (keyup.enter)="onSearch()"
+      type="text"
+      class="form-control"
+      placeholder="Search for destinations..."
+    />
+  </div>
+
+  <!-- Search Button -->
+  <div class="text-center mb-4">
+    <button (click)="onSearch()" class="btn btn-primary btn-lg" style="background-color: #008080; border-radius: 15px;">Search</button>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="alert alert-danger text-center">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Destinations Display -->
+  <div *ngIf="destinations.length > 0" class="row">
+    <div class="col-md-4 mb-4" *ngFor="let destination of destinations">
+      <div class="card h-100 shadow-sm">
+        <img [src]="'../../../assets/images/' + destination.images" class="card-img-top" alt="{{ destination.name }}" />
+        <div class="card-body">
+          <h5 class="card-title">{{ destination.id }}</h5>
+          <h4 class="card-title">
+            {{ destination.title}}...
+          </h4>
+          <p class="card-text"><b>Summery :</b>{{ destination.summary | slice:0:100 }}...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

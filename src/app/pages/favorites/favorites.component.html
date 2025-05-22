@@ -1,0 +1,74 @@
+<div class="container mt-5">
+    <div class="card-shadow-lg p-4">
+        <table class="table table-borderless">
+          <tr>   
+              <th class="text-center" colspan="2">
+                   <h2 class="alert">Favorites</h2>
+               </th>
+          </tr> 
+
+          <tr>
+               <td class="text-center">
+                   <button class="btn btn-outline w-100" [class.active]="activeTab === 'bookGuide'" 
+                   (click)="setActiveTab('bookGuide')"
+                   style="background-color: #008080; border-radius: 15px; color: white; font-weight: bold;">bookGuide</button>
+                </td>
+                <td class="text-center">
+                     <button class="btn btn-outline-primary w-100" [class.active]="activeTab === 'itineraries'" 
+                     (click)="setActiveTab('itineraries')"
+                     style="background-color: #008080; border-radius: 15px; color: white; font-weight: bold;">Itineraries</button>
+                </td>
+            </tr>
+        
+          <tr>
+                <td colspan="2">
+                    <div class="p-3">
+                          <div *ngIf="activeTab === 'bookGuide'" class="tab-pane fade show active">
+                                <div class="card p-3 dynamic-card">
+                                    <h4>Book Guide Addings</h4>
+                                       <div *ngIf="bookGuideList.length > 0">
+                                        <div *ngFor="let item of bookGuideList" class="card p-2 mb-3">
+                                            <div class="card-body">
+                                                <h4>Id:{{item.id}}</h4>
+                                                 <h4 class="card-title">{{item.name}}</h4>
+                                                 <p class="card-text">{{item.description}}</p>
+                                                 <button class="btn btn-primary view-more" (click)="onbali(item.id)" style="background-color: #008080; border-radius: 15px; color: white; font-weight: bold;">View More</button>
+                                                 <button class="btn btn-danger" (click)="removeFromFavorites(item.id)"
+                                                 style="background-color: #4b0082; border-radius: 15px; color: white; font-weight: bold;">Remove From Favorites</button>
+                                            </div>
+                                            <!-- {{item.name}} -->
+                                         </div> 
+
+                                       </div>
+                                       <p *ngIf="bookGuideList.length===0">No Book Guides Adding Yet</p>
+                                </div>    
+                           </div>
+                    </div>
+                    <div class="p-3">
+                        <div *ngIf="activeTab === 'itineraries'" class="tab-pane fade show active">
+                          <div class="card p-3 dynamic-card">
+                            <h4>Itineraries Addings</h4>
+                            <div *ngIf="itinerariesList.length > 0">
+                              <div *ngFor="let itinerary of itinerariesList" class="card p-2 mb-2">
+                                <div class="card-body">
+                                  <!-- <p class="card-text"><strong>ID:</strong> {{itinerary.id}}</p> -->
+                                  <p class="card-text"><strong>Destination:</strong> {{itinerary.destination}}</p>
+                                    <p class="card-text"><strong>Activities:</strong> {{itinerary.activities}}</p>
+                                    <p class="card-text"><strong>Duration:</strong> {{itinerary.duration}}</p>
+                                    <p class="card-text"><strong>Dining:</strong> {{itinerary.dining}}</p>
+                                    <p class="card-text"><strong>Lodging:</strong> {{itinerary.lodging}}</p>
+                                    <button (click)="removeItinerary(itinerary.id)" class="btn btn-danger"
+                                    style="background-color: #4b0082; border-radius: 15px; color: white; font-weight: bold;">Remove From Favorites</button>
+                                </div>
+                              </div>
+                            </div>
+                            <p *ngIf="itinerariesList.length === 0">No Saved Itineraries Yet</p>
+                          </div>
+                        </div>
+                      </div>
+               </td>
+          </tr>    
+        
+        </table>
+    </div>    
+</div>

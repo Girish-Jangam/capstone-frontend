@@ -1,0 +1,97 @@
+
+
+/* General Navbar Styling */
+
+.custom-navbar {
+  background: linear-gradient(135deg, #4b0082, #008080); /* Dark purple to teal gradient */
+  border-bottom: 3px solid #ddd;
+  padding: 10px 15px;
+  width: 100%;  /* Reduced width */
+  margin: 0 auto; /* Center align */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-radius: 8px; /* Slight curve on edges */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Brand name styling */
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffcc00;  /* Gold brand color */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-brand:hover {
+  color: #ffd700; /* Brighter gold hover effect */
+}
+
+/* Navbar links styling */
+.navbar-nav .nav-item .nav-link {
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 10px 14px;
+  text-transform: capitalize;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color: #ffcc00; /* Gold hover effect */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+}
+
+/* Active link */
+.navbar-nav .nav-item .nav-link.active {
+  color: #ffcc00;
+  font-weight: bold;
+}
+
+/* Navbar toggler button (mobile) */
+.navbar-toggler {
+  border: none;
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  background-color: transparent;
+  font-size: 1.5rem;
+  color: #ffcc00;
+}
+
+/* Responsive Navbar */
+@media (max-width: 991px) {
+  .custom-navbar {
+      width: 100%; /* Full width for mobile */
+      padding: 10px;
+  }
+
+  .navbar-brand {
+      font-size: 1.5rem;
+  }
+
+  .navbar-nav {
+      background: rgba(75, 0, 130, 0.95); /* Darker purple background */
+      padding: 15px
+  }
+}
+@import
+url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+.logo{
+  font-family: 'Great Vibes',cursive;
+  font-size: 40px;
+  font-weight: bold;
+  background: linear-gradient(45deg,#b8926a, #705438);
+  text-transform: capitalize;
+  text-align: center;
+  background: linear-gradient(45deg, #FFD700, #FFD107, #B8860B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 4px 4px 10px rgba(255, 215,0,0.6);
+  display: inline-block;
+}

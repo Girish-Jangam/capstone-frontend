@@ -1,0 +1,74 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="form-container">
+                <h2 class="header">Trip Itinerary Form</h2>
+                <div class="container1">
+                    <form [formGroup]="itinerary" (ngSubmit)="submitForm()">
+                        <!-- Destination -->
+                        <div class="mb-3">
+                            <label for="destination" class="form-label"><h5>Destination</h5></label>
+                            <input type="text" id="destination" formControlName="destination" class="form-control">
+                            <div class="alert alert-danger" *ngIf="itinerary.controls['destination'].invalid && (itinerary.controls['destination'].dirty || itinerary.controls['destination'].touched)">
+                                <span *ngIf="itinerary.controls['destination'].errors!['required']">Destination is required</span>
+                            </div>
+                        </div>
+                        <!-- Start date -->
+                         <!-- <div class="mb-3">
+                            <label for="startDate" class="form-label"><h5>Start Date</h5></label>
+                            <input type="date" id="startDate" formControlName="startDate" class="form-control">
+                            <div class="alert alert-danger" *ngIf="itinerary.controls['startDate'].invalid && (itinerary.controls['startDate'].dirty || itinerary.controls['startDate'].touched)">
+                                <span *ngIf="itinerary.controls['startDate'].errors!['required']">Start date is required</span>
+                                <span *ngIf="itinerary.get('startDate')?.hasError('startDateInvalid')">Start date cannot be the past date</span>
+                            </div>
+                         </div> -->
+                         <!-- End date -->
+                         <!-- <div class="mb-3">
+                            <label for="endDate" class="form-label"><h5>End Date</h5></label>
+                            <input type="date" id="endDate" formControlName="endDate" class="form-control">
+                            <div class="alert alert-danger" *ngIf="itinerary.controls['endDate'].invalid && (itinerary.controls['endDate'].dirty || itinerary.controls['endDate'].touched)">
+                                <span *ngIf="itinerary.controls['endDate'].errors!['required']">End date is required</span>
+                                <span *ngIf="itinerary.get('endDate')?.hasError('endDateInvalid')">End date must be after the start date</span>
+                            </div>
+                        </div> -->
+                        <!-- duration -->
+                         <div class="mb-3">
+                            <label for="duration" class="form-label"><h5>Duration</h5></label>
+                            <input type="text" id="duration" formControlName="duration" class="form-control">
+                            <div class="alert alert-danger" *ngIf="itinerary.controls['duration'].invalid && (itinerary.controls['duration'].dirty || itinerary.controls['duration'].touched)">
+                                <span *ngIf="itinerary.controls['duration'].errors!['required']">Duration is required</span>
+                            </div>
+                         </div>
+                        <!-- Activities -->
+                        <div class="mb-3">
+                            <label for="activities" class="form-label"><h5>Activities</h5></label>
+                            <input type="text" id="activities" class="form-control" formControlName="activities" class="form-control">
+                            <div class="alert alert-danger" *ngIf="itinerary.controls['activities'].invalid && (itinerary.controls['activities'].dirty || itinerary.controls['activities'].touched)">
+                                <span *ngIf="itinerary.controls['activities'].errors!['required']">Please write your plans</span>
+                            </div>
+                        </div>
+                        <!-- Lodging -->
+                        <div class="mb-3">
+                            <label for="Lodging" class="form-label"><h5>Lodging</h5></label>
+                            <input type="text" id="Lodging" formControlName="Lodging" class="form-control">
+                            <div class="alert alert-danger" *ngIf="itinerary.controls['Lodging'].invalid && (itinerary.controls['Lodging'].dirty || itinerary.controls['Lodging'].touched)">
+                                <span *ngIf="itinerary.controls['Lodging'].errors!['required']">Lodging preferences are required</span>
+                            </div>
+                        </div>
+                        <!-- dining -->
+                        <div class="mb-3">
+                            <label for="dining" class="form-label"><h5>Dining</h5></label>
+                            <input type="text" id="dining" formControlName="dining" class="form-control">
+                            <div class="alert alert-danger" *ngIf="itinerary.controls['dining'].invalid && (itinerary.controls['dining'].dirty || itinerary.controls['dining'].touched)">
+                                <span *ngIf="itinerary.controls['dining'].errors!['required']">Lodging preferences are required</span>
+                            </div>
+                        </div>
+                        <div class="button">
+                            <button type="submit" [disabled]="itinerary.invalid">Submit</button>
+                        </div>
+                    </form>
+                </div>  
+            </div>
+            </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="container">
+  <!-- Create Group Section -->
+  <div *ngIf="action === 'create'">
+    <h2 style="color: #4b0082;"><b>Create a New Travel Group</b></h2>
+    <form (ngSubmit)="createGroup()">
+      <input type="text" [(ngModel)]="newGroup.name" name="name" placeholder="Group Name" required />
+      <textarea [(ngModel)]="newGroup.description" name="description" placeholder="Group Description"></textarea>
+      <label>
+        <input type="checkbox" [(ngModel)]="newGroup.isPublic" name="isPublic" /> Public Group
+      </label>
+      <button type="submit" style="background-color: #008080;"><b>Create Group</b></button>
+    </form>
+  </div>
+
+  <!-- View Groups Section -->
+  <div *ngIf="action === 'view'">
+    <h2 style="color: #4b0082;"><b>Available Groups</b></h2>
+    <div *ngIf="groups.length > 0; else noGroups">
+      <div *ngFor="let group of groups">
+        <div class="group-card">
+          <h3>{{ group.name }}</h3>
+          <p>{{ group.description }}</p>
+          <p>Members: {{ group.members ? group.members.length : 0 }}</p>
+          <p>Status: {{ group.isPublic ? 'Public' : 'Private' }}</p>
+          <button *ngIf="group.isPublic && !isUserInGroup(group)" (click)="joinGroup(group.name)" style="background-color: #008080;"><b>Join Group</b></button>
+        </div>
+      </div>
+    </div>
+  
+    <ng-template #noGroups>
+      <p>No groups available at the moment.</p>
+    </ng-template>
+  </div>
+</div>
+
+<!-- Show Group Chat Section after Joining -->
+<div *ngIf="group">
+  <div class="group-chat-card">
+    <h3>{{ group.name }} - Chat</h3>
+    <div *ngFor="let message of messages">
+      <p><strong>{{ message.sender }}:</strong> {{ message.text }}</p>
+    </div>
+    <textarea [(ngModel)]="messageText" placeholder="Type Your Message"></textarea>
+    <button (click)="sendMessage(group.name)">Send</button>
+    <button (click)="goBack()">Back</button>
+  </div>
+</div>

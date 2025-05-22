@@ -1,0 +1,16 @@
+
+
+[
+        {
+          "id": "123",
+          "title": "Bali Destination Guide",
+          "summary": "Explore the beauty of Bali with our comprehensive guide.",
+          "photos": "assets/images/Bali.jpg"
+        },
+        {
+          "id": "456",
+          "title": "Paris Destination Guide",
+          "summary": "Discover the magic of Paris, the City of Lights.",
+          "photos": "assets/images/NewYork.jpg"
+        }
+      ]
